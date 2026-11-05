@@ -18,9 +18,17 @@ pnpm install
 pnpm dev
 ```
 
-La aplicación también se puede instalar como PWA desde un navegador compatible.
-Para producción, debe publicarse mediante HTTPS. Después de la primera carga,
-el shell de la aplicación queda disponible sin conexión.
+## Uso sin conexión
+
+Generá la versión instalable con `pnpm build` y publicá el contenido de `dist/`
+en un sitio HTTPS. Abrí el sitio una vez con conexión y esperá a que termine
+la carga inicial; después podés instalarlo desde el navegador. El service worker
+guarda los archivos de la aplicación para abrirla y generar certificados sin
+internet. En iOS, usá “Añadir a pantalla de inicio” desde Safari.
+
+La instalación o actualización de dependencias de desarrollo requiere descargar
+paquetes (o tenerlos previamente en la caché local de pnpm); no es necesaria
+para usar la aplicación ya compilada e instalada.
 
 ## Comandos
 

@@ -25,7 +25,7 @@ function loadOptions() {
 }
 
 export default function App() {
-  const { canInstall, install } = useInstallPrompt()
+  const { canInstall, install, online } = useInstallPrompt()
   const [workbook, setWorkbook] = useState(null)
   const [sheetName, setSheetName] = useState('')
   const [records, setRecords] = useState([])
@@ -176,12 +176,21 @@ export default function App() {
           {canInstall && (
             <button
               onClick={install}
-              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="mt-4 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700"
             >
               Instalar aplicación
             </button>
           )}
         </header>
+
+        {!online && (
+          <div
+            role="status"
+            className="mb-5 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800"
+          >
+            Sin conexión a internet. La aplicación sigue funcionando en este dispositivo.
+          </div>
+        )}
 
         <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(20rem,28rem)] 2xl:gap-8">
           <main className="min-w-0 space-y-5">

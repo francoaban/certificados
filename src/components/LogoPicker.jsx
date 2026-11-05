@@ -48,7 +48,7 @@ export default function LogoPicker({ options, onChange }) {
             Incluir escudo / logo
           </label>
           <p className="truncate text-xs text-slate-400">
-            {custom ? custom.name : 'Escudo del IPSEL (predeterminado)'}
+            {custom ? custom.name : 'Logo genérico (predeterminado)'}
           </p>
           <div className="flex flex-wrap gap-3">
             <button
@@ -63,7 +63,7 @@ export default function LogoPicker({ options, onChange }) {
                 onClick={() => onChange({ ...options, customLogo: null })}
                 className="text-xs font-semibold text-slate-500 hover:text-slate-700"
               >
-                Usar escudo del IPSEL
+                Usar logo genérico
               </button>
             )}
           </div>

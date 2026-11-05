@@ -59,7 +59,7 @@ export default function CertificatePreview({ record, options }) {
         )}
       </div>
 
-      <div className="relative aspect-[297/210] w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+      <div className="relative mx-auto aspect-[297/210] w-full max-w-[60dvh] overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
         {url ? (
           <iframe
             title="Vista previa del certificado"

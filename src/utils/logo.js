@@ -1,4 +1,4 @@
-import escudoUrl from '../assets/escudo.png'
+import escudoUrl from '../assets/logo-generico.png'
 
 export const DEFAULT_LOGO_URL = escudoUrl
 
