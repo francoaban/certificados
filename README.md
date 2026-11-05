@@ -18,6 +18,10 @@ pnpm install
 pnpm dev
 ```
 
+La aplicación también se puede instalar como PWA desde un navegador compatible.
+Para producción, debe publicarse mediante HTTPS. Después de la primera carga,
+el shell de la aplicación queda disponible sin conexión.
+
 ## Comandos
 
 ```sh

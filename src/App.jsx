@@ -11,6 +11,7 @@ import {
   generateBulkPdf,
   generateZip,
 } from './utils/pdfGenerator'
+import useInstallPrompt from './hooks/useInstallPrompt'
 
 const STORAGE_KEY = 'certificados:options:v1'
 
@@ -24,6 +25,7 @@ function loadOptions() {
 }
 
 export default function App() {
+  const { canInstall, install } = useInstallPrompt()
   const [workbook, setWorkbook] = useState(null)
   const [sheetName, setSheetName] = useState('')
   const [records, setRecords] = useState([])
@@ -164,13 +166,21 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-100 px-4 py-6 sm:px-6 sm:py-10">
       <div className="mx-auto w-full max-w-[1440px]">
-        <header className="mb-8 text-center">
+        <header className="relative mb-8 text-center">
           <h1 className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
             Generador de certificados
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base">
             Subí una planilla con nombres y apellidos (documento opcional) y descargá los certificados en PDF.
           </p>
+          {canInstall && (
+            <button
+              onClick={install}
+              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Instalar aplicación
+            </button>
+          )}
         </header>
 
         <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(20rem,28rem)] 2xl:gap-8">
