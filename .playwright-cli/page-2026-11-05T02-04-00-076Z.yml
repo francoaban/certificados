@@ -1,0 +1,19 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - heading "Generador de certificados" [level=1] [ref=e6]
+    - paragraph [ref=e7]: Subí una planilla con nombres y apellidos (documento opcional) y descargá los certificados en PDF.
+  - generic [ref=e8]:
+    - main [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11] [cursor=pointer]:
+          - paragraph [ref=e14]: Arrastrá tu archivo acá o hacé clic para seleccionarlo
+          - paragraph [ref=e15]: "Formatos admitidos: .xlsx, .xls, .csv"
+        - button "↓ Descargar planilla de ejemplo" [ref=e17]
+      - button "Textos y formato Editar ▼" [ref=e19]:
+        - generic [ref=e20]: Textos y formato
+        - generic [ref=e21]: Editar ▼
+      - paragraph [ref=e23]: Todavía no hay datos. Cargá un archivo para ver la previsualización.
+    - complementary [ref=e24]:
+      - generic [ref=e25]:
+        - heading "Vista previa" [level=2] [ref=e27]
+        - generic [ref=e28]: Cargá un archivo para ver cómo queda el certificado.
