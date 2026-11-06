@@ -199,9 +199,10 @@ export default function App() {
               <div className="px-1">
                 <button
                   onClick={downloadTemplate}
-                  className="text-xs font-semibold text-indigo-600 transition hover:text-indigo-800"
+                  className="rounded-lg bg-indigo-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-wait disabled:opacity-60 inline-flex items-center gap-1"
                 >
-                  ↓ Descargar planilla de ejemplo
+                  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                  <span>Descargar planilla de ejemplo</span>
                 </button>
               </div>
             </div>
@@ -278,9 +279,10 @@ export default function App() {
                   <button
                     onClick={handleSinglePdf}
                     disabled={busy}
-                    className="rounded-lg border border-indigo-200 bg-white px-4 py-2 text-xs font-semibold text-indigo-700 transition hover:bg-indigo-50 disabled:cursor-wait disabled:opacity-60"
+                    className="rounded-lg border border-indigo-200 bg-white px-4 py-2 text-xs font-semibold text-indigo-700 transition hover:bg-indigo-50 disabled:cursor-wait disabled:opacity-60 inline-flex items-center gap-1"
                   >
-                    PDF único · {batchLabel}
+                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                    <span>Descargar un solo PDF · {batchLabel}</span>
                   </button>
                   {selected.size > 0 && (
                     <button

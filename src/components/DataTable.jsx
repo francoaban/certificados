@@ -117,7 +117,7 @@ export default function DataTable({
               <th className="px-2 py-3">Apellido</th>
               <th className="px-2 py-3">Tipo doc.</th>
               <th className="px-2 py-3">Documento</th>
-              <th className="px-4 py-3 text-right">Acción</th>
+              <th className="px-4 py-3 text-center">Acción</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -181,7 +181,7 @@ export default function DataTable({
                       onCommit={(v) => onUpdate(r.id, { docNumber: cleanDocument(v, type) })}
                     />
                   </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-right">
+                  <td className="whitespace-nowrap px-4 py-2 text-left">
                     <button
                       onClick={() => onPreview(r.id)}
                       className={`mr-2 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
@@ -190,14 +190,15 @@ export default function DataTable({
                           : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                       }`}
                     >
-                      Ver
+                      Vista previa
                     </button>
                     <button
                       onClick={() => onGenerate(r)}
                       disabled={generatingId === r.id}
-                      className="rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-wait disabled:opacity-60"
+                      className="rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-wait disabled:opacity-60 inline-flex items-center gap-1"
                     >
-                      {generatingId === r.id ? 'Generando…' : 'PDF'}
+                      <svg class="fill-current w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                      <span>{generatingId === r.id ? 'Generando…' : 'Certificado'}</span>
                     </button>
                   </td>
                 </tr>

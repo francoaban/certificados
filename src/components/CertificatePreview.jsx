@@ -8,13 +8,12 @@ export default function CertificatePreview({ record, options }) {
   const lastUrl = useRef(null)
 
   useEffect(() => {
-    if (!record) {
-      setUrl(null)
-      return
-    }
+    if (!record) return
+
     let cancelled = false
-    setLoading(true)
     const timer = setTimeout(async () => {
+      if (cancelled) return
+      setLoading(true)
       try {
         const next = await buildPreviewUrl(record, options)
         if (cancelled) {
@@ -42,14 +41,15 @@ export default function CertificatePreview({ record, options }) {
   )
 
   const name = record ? resolveRecord(record, options).fullName : ''
+  const shownUrl = record ? url : null
 
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
       <div className="mb-3 flex items-center justify-between gap-2">
         <h2 className="text-sm font-semibold text-slate-700">Vista previa</h2>
-        {url && (
+        {shownUrl && (
           <a
-            href={url}
+            href={shownUrl}
             target="_blank"
             rel="noreferrer"
             className="text-xs font-semibold text-indigo-600 hover:text-indigo-800"
@@ -60,10 +60,10 @@ export default function CertificatePreview({ record, options }) {
       </div>
 
       <div className="relative mx-auto aspect-[297/210] w-full max-w-[60dvh] overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
-        {url ? (
+        {shownUrl ? (
           <iframe
             title="Vista previa del certificado"
-            src={`${url}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`}
+            src={`${shownUrl}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`}
             className="h-full w-full"
           />
         ) : (
@@ -71,7 +71,7 @@ export default function CertificatePreview({ record, options }) {
             Cargá un archivo para ver cómo queda el certificado.
           </div>
         )}
-        {loading && (
+        {loading && record && (
           <div className="absolute right-2 top-2 h-5 w-5 animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600" />
         )}
       </div>

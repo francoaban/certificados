@@ -59,7 +59,7 @@ export function cleanDocument(raw, typeId = null) {
   }
 
   if (typeId === 'OTRO') return s
-  if (typeId === 'PASAPORTE') return s.replace(/[\s.\-]/g, '').toUpperCase()
+  if (typeId === 'PASAPORTE') return s.replace(/[\s.-]/g, '').toUpperCase()
 
   let prev
   do {
@@ -67,7 +67,7 @@ export function cleanDocument(raw, typeId = null) {
     s = s.replace(PREFIX_RE, '')
   } while (s !== prev)
 
-  const compact = s.replace(/[.\s\-]/g, '')
+  const compact = s.replace(/[.\s-]/g, '')
   return /[A-Za-z]/.test(compact) ? compact.toUpperCase() : compact
 }
 
